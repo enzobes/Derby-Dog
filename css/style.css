@@ -175,26 +175,70 @@ img {
 
 /*END FOOTER*/
 
-.caption{
+.caption
+{
 	text-align: justify;
 }
-.header-image {
+.header-image
+{
 width: auto;
 }
-.form-group{
+.form-group
+{
 	margin:50px;
 }
-.panel-success{
+.panel-success
+{
 	margin : 50px;
 }
-#icone_nav{
+#icone_nav
+{
 	margin-top:-12px;
 }
 
-.input-group2{
+.input-group2
+{
   display: inline-block !important;
 	width: 95%;
 }
-.btn-success2{
+.btn-success2
+{
 	border-radius:
+}
+
+.button_sm
+{
+	position:relative;
+	left:65%;
+}
+
+#adminPage
+{
+	margin:30px;
+}
+
+.titleh1
+{
+	margin-left:30px;
+	text-align:center;
+}
+
+.image3
+{
+	width: 80% !important;
+	height: 50% !important:
+}
+
+#adm h2
+{
+	padding-top:30px;
+	text-align: center;
+}
+#buttonLG
+{
+	text-align: center;
+}
+.titleh3_sp
+{
+	text-align: center;
 }
