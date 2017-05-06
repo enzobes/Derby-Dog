@@ -1,15 +1,24 @@
+<?php
+ini_set('display_errors','on');
+error_reporting(E_ALL);
+?>
+<?php
+//Connection database
+
+	include ("database.php");
+?>
 <!DOCTYPE html>
+
 <html lang="en">
 	<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Derby Dogs Kennels - Staffordshire University</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
-	<link href='http://fonts.googleapis.com/css?family=Cabin:400,500,600,700,400italic,500italic,600italic,700italic' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
-
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Derby Dogs Kennels - Staffordshire University</title>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Cabin:400,500,600,700,400italic,500italic,600italic,700italic' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
 	</head>
 	<body class="homepage">
 		<!-- Header -->
@@ -66,73 +75,10 @@
 		<!-- Navigation end -->
 
 <div class="page-header">
-  <h1 class="titleh1">Search Forms</h1>
+  <h1 class="titleh1">More details</h1>
 </div>
-<div class="panel panel-success">
 
-	<div class="panel-body-center">
-		<label class="col-form-label">Dog Name</label>
 
-		<div class="input-group" style="width:50%">
-		      <input type="text" class="form-control"  placeholder="Input a dog name ....">
-		      <span class="input-group-btn">
-		        <button class="btn btn-success" type="button"><span class="glyphicon glyphicon-search"></span></button>
-		      </span>
-		</div><!-- /input-group -->
-	</div>
-</div>
-<div class="panel panel-success">
-
-	<div class="panel-body-center">
-		<label class="col-form-label">List of breeds</label>
-
-		<div class="input-group" style="width:50%;margin-top:10px">
-			<select class="form-control" style="margin-left:2px">
-			<option value="breeds">Select a breed</option>
-
-			<option value="one">Jack Russell Terrier</option>
-			<option value="two">Harrier</option>
-			<option value="three">Beagle</option>
-			<option value="four">Great Dane</option>
-			<option value="five">French Bulldog</option>
-			<option value="five">Fox Terrier</option>
-		</select>
-
-		      <span class="input-group-btn">
-		        <button  class="btn btn-success" type="button"><span class="glyphicon glyphicon-search"></span></button>
-		      </span>
-		</div><!-- /input-group -->
-	</div>
-</div>
-<div class="panel panel-success">
-
-	<div class="panel-body-center">
-		<label class="col-form-label">Search by Age & Name</label>
-
-		<div class="input-group input-group2" style="margin-top:10px">
-			<select style="width:10%" class="form-control">
-			<option value="Age">Age</option>
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
-			<option value="5">5</option>
-			<option value="6">6</option>
-			<option value="7">7</option>
-			<option value="8">8</option>
-			<option value="9">9</option>
-			<option value="10">10</option>
-
-		</select>
-		      <span class="input-group-btn">
-						<input type="text" class="form-control" style="width:44%"   placeholder="Input a dog name ....">
-
-		        <button  class="btn btn-success" type="button"><span class="glyphicon glyphicon-search"></span></button>
-		      </span>
-				</div><!-- /input-group -->
-
-	</div>
-</div>
 <!-- Footer -->
 <footer>
 

@@ -1,3 +1,42 @@
+<?php
+ini_set('display_errors','on');
+error_reporting(E_ALL);
+?>
+<?php
+//Connection database
+
+	include ("database.php");
+
+$query = "SELECT * FROM dog WHERE adopted = 'N' ORDER BY name ASC";
+$result = $bdd->query($query);
+$output="";
+
+while ($row = $result->fetch()){
+			$output = $output . "
+				<div class='col-sm-6 col-md-4'>
+					<div class='thumbnail'>
+					<img src=". $row['picture_url'] ." alt='dog_image'>
+						<div class='caption'>
+							<div class='option'>
+							<h3 class='name_dog'>". $row['name'] ."</h3>
+						<p>
+							<h5>Age: ". $row['age'] ." years</h5>
+							<h5>Gender: ". $row['gender'] ."</h5>
+							</br>
+			 		 </div>
+					 ". $row['description'] ."
+					 </p>
+					 <p class='align-centered'><a href='#' class='btn btn-default' role='button'>More details</a></p>
+				 		</div>
+				 	</div>
+				</div>
+		";
+}
+	 $result->closeCursor(); // Termine le traitement de la requête
+
+/* close connection */
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -11,7 +50,12 @@
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
 
 	</head>
+
 	<body class="homepage">
+		<!-- Connection database -->
+		<?php
+		include ("database.php");
+		?>
 		<!-- Header -->
 		<header>
 			<div class="small-container">
@@ -19,7 +63,7 @@
 						<div class="intro-text">
 								<div class="intro-heading-small">Welcome to Derby Dog!</div>
 								<div class="intro-lead-in">You can sponsor a dog</div>
-								<a href="sponsor.html" class="btn-xl">Tell Me More</a>
+								<a href="sponsor.php" class="btn-xl">Tell Me More</a>
 						</div>
 				</div>
 			</div>
@@ -37,21 +81,21 @@
 					</button>
 					<figure id= "icone_nav">
 
-					<a class="navbar-brand" href="index.html"><strong><img src="images/dog-icon.png" alt="icone" width="48" height="48" >Derby Dogs</strong><br /></a>
+					<a class="navbar-brand" href="index.php"><strong><img src="images/dog-icon.png" alt="icone" width="48" height="48" >Derby Dogs</strong><br /></a>
 
 					</figure>
 				</div>
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li>
-							<a href="index.html" title="Home"><span data-hover="Home" >Home</span></a>
+							<a href="index.php" title="Home"><span data-hover="Home" >Home</span></a>
 						</li>
 						<li>
 							<a href="search.html" title="search"><span data-hover="Search ">Search</span></a>
 						</li>
 
 						<li class="active">
-							<a href="sponsor.html" ><span data-hover="Sponsor">Sponsor</span></a>
+							<a href="sponsor.php" ><span data-hover="Sponsor">Sponsor</span></a>
 
 						</li>
 						<li>
@@ -94,11 +138,10 @@
 			<p>The Golden Retriever is a large-sized breed of dog bred as gun dogs to retrieve shot waterfowl such as ducks and upland game birds during hunting and shooting parties,
 				 and were named 'retriever' because of their ability to retrieve shot game undamaged. Golden Retrievers have an instinctive love of water, and are easy to train to basic.
 				 They are a long-coated breed.</p><br/><br/>
-
 		</div>
-		<a class="btn btn-success btn-sm button_sm" href="search.html" role="button">Sponsor this dog <span class="glyphicon glyphicon-chevron-right"></span></a>
 	</div>
 </div>
+
 	<div class="col-sm-6 col-md-4">
 		<div class="thumbnail">
 			<img src="images/bouvier.jpeg" alt="Bernese">
@@ -108,8 +151,6 @@
 					The name Sennenhund is derived from the German Senne (“alpine pasture”) and Hund (“dog”), as they accompanied the alpine herders and dairymen called Senn. Berner (or Bernese in English) refers to the area of the breed’s origin,
 					in the canton of Bern. This mountain dog was originally kept as a general farm dog. </p>
 			</div>
-			<a class="btn btn-success btn-sm button_sm"  href="search.html" role="button">Sponsor this dog <span class="glyphicon glyphicon-chevron-right"></span></a>
-
 		</div>
 	</div>
 	<div class="col-sm-6 col-md-4">
@@ -120,15 +161,19 @@
 				<p>The French Bulldog also known as the Frenchie is a small breed of domestic dog. Frenchies were the result in the 1800s of a cross between bulldog ancestors imported from England and local ratters in Paris (France).
 				In 2014, they were the fourth most popular registered dog in the United Kingdom and in the U.S. the ninth most popular AKC registered dog breed.
 				They were rated the third most popular dog in Australia (for 2017).</p><br/>
-
 			</div>
-			<a class="btn btn-success btn-sm button_sm" href="search.html" role="button">Sponsor this dog <span class="glyphicon glyphicon-chevron-right"></span></a>
-
 		</div>
 	</div>
 </div>
 
+<!-- SPONSORSHIP SECTION -->
 
+<h1 class="titleh1">Dog available for sponsorship</h1>
+<div class="row" id="columnx3">
+
+	<?php echo($output); ?>
+
+</div>
 <footer>
 
 <div class="footer">
@@ -148,9 +193,9 @@
 			<div class="col-md-3">
 				<h6>Navigation</h6>
 				<ul>
-					<li><a href="index.html" >Home</a></li>
+					<li><a href="index.php" >Home</a></li>
 					<li><a href="search.html" >Search</a></li>
-					<li><a href="sponsor.html" >Sponsor</a></li>
+					<li><a href="sponsor.php" >Sponsor</a></li>
 					<li><a href="admin.html">Admin</a></li>
 				</ul>
 			</div>
