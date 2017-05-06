@@ -1,12 +1,7 @@
 <?php
-ini_set('display_errors','on');
-error_reporting(E_ALL);
-?>
-<?php
 
 //Connection database
 	include ("database.php");
-	
 //POST variables
 $q = htmlspecialchars($_POST['q']);
 $breed = htmlspecialchars($_POST['id_breed']);
@@ -46,7 +41,7 @@ if($query->rowCount() == 0){
 				 </div>
 				 ". $row['description_dog'] ."
 				 </p>
-				 <p class='align-centered'><a href='#' class='btn btn-default' role='button'>More details</a></p>
+				 <p class='align-centered'><a href='more_details.php?id=".$row['dog_id']."' class='btn btn-default' role='button'>More details</a></p>
 					</div>
 				</div>
 			</div>
@@ -77,13 +72,12 @@ if(($query3->rowCount() == 0) && !empty($_POST['id_breed'])){
 					<p>
 						<h5>Age: ". $row['age'] ." years</h5>
 						<h5>Gender: ". $row['gender'] ."</h5>
-						<h5>Breed number: ". $row['breed'] ."</h5>
 
 						<br/>
 				 </div>
 				 ". $row['description_dog'] ."
 				 </p>
-				 <p class='align-centered'><a href='#' class='btn btn-default' role='button'>More details</a></p>
+				 <p class='align-centered'><a href='more_details.php?id=".$row['dog_id']."' class='btn btn-default' role='button'>More details</a></p>
 					</div>
 				</div>
 			</div>
@@ -115,13 +109,12 @@ if(($query5->rowCount() == 0) && !empty($_POST['search_name'])){
 					<p>
 						<h5>Age: ". $row['age'] ." years</h5>
 						<h5>Gender: ". $row['gender'] ."</h5>
-						<h5>Breed number: ". $row['breed'] ."</h5>
 
 						<br/>
 				 </div>
 				 ". $row['description_dog'] ."
 				 </p>
-				 <p class='align-centered'><a href='#' class='btn btn-default' role='button'>More details</a></p>
+				 <p class='align-centered'><a href='more_details.php?id=".$row['dog_id']."' class='btn btn-default' role='button'>More details</a></p>
 					</div>
 				</div>
 			</div>

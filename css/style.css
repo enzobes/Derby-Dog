@@ -407,3 +407,10 @@ header .intro-text .intro-heading {
 #rowid{
 	margin-left:10%;
 }
+
+.spanGreen{
+	color:green;
+}
+.spanRed{
+	color:red;
+}

@@ -6,6 +6,50 @@ error_reporting(E_ALL);
 //Connection database
 
 	include ("database.php");
+	$id = $_GET['id'];
+	$query = $bdd->query('SELECT * FROM dog INNER JOIN dog_breed ON dog.breed = dog_breed.dog_breed_id INNER JOIN colour on dog.colour = colour.colour_id WHERE dog_id = "'.$id.'"');
+	$output= "";
+	$row = $query->fetch();
+	$likes_other_dog = $row['likes_other_dog'];
+	if($likes_other_dog =='Y'){
+		$likes_other_dog = '<span class="glyphicon glyphicon-ok spanGreen"></span>';
+	}else{
+		$likes_other_dog = '<span class="glyphicon glyphicon-remove spanRed"></span>';
+	}
+	$likes_to_play = $row['likes_to_play'];
+	if($likes_to_play =='Y'){
+		$likes_to_play = '<span class="glyphicon glyphicon-ok spanGreen"></span>';
+	}else{
+		$likes_to_play = '<span class="glyphicon glyphicon-remove spanRed"></span>';
+	}
+
+		$output = $output . "
+				<div class='thumbnail'>
+				<img class='icon-article' src=". $row['picture_url'] ." alt='dog_image'>
+					<div class='caption'>
+						<div class='option'>
+						<h3 class='name_dog'>". $row['name'] ."</h3>
+
+						<h5>Age: ". $row['age'] ." years</h5>
+						<h5>Gender: ". $row['gender'] ."</h5>
+						<h5>Breed: ". $row['description_breed'] ."</h5>
+						<h5>Color: ". $row['description_color'] ."</h5>
+						<br/>
+						<h5>Like Other Dog: ". $likes_other_dog ."</h5>
+						<h5>Like To Play: ". $likes_to_play ."</h5>
+						<br/>
+				 </div>
+				 <div class='align-centered'>
+				 <h5>Description:</h5><br/>
+				". $row['description_dog'] ."
+				 </div>
+
+					</div>
+				</div>
+	";
+
+
+
 ?>
 <!DOCTYPE html>
 
@@ -77,8 +121,11 @@ error_reporting(E_ALL);
 <div class="page-header">
   <h1 class="titleh1">More details</h1>
 </div>
-
-
+<div class="panel panel-default">
+  <div class="panel-body">
+		<?php echo($output); ?>
+	</div>
+</div>
 <!-- Footer -->
 <footer>
 
