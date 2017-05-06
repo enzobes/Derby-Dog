@@ -26,6 +26,7 @@ if($query->rowCount() == 0){
 
 }elseif(isset($_POST['q'])&& !empty($_POST['q'])){
 
+	$output = $output . "<div class='panel-body '>";
 	while($row = $query->fetch()) {
 		$output = $output . "
 		<div class='col-sm-6 col-md-4'>
@@ -47,6 +48,7 @@ if($query->rowCount() == 0){
 			</div>
 	";
 	}
+	$output = $output . "</div>";
 
 }
 // SELECT
@@ -61,6 +63,8 @@ if(($query3->rowCount() == 0) && !empty($_POST['id_breed'])){
 
 }elseif(isset($_POST['id_breed'])&& !empty($_POST['id_breed'])){
 
+	$output = $output . "<div class='panel-body '>";
+
 	while($row = $query3->fetch()) {
 		$output = $output . "
 		<div class='col-sm-6 col-md-4'>
@@ -72,6 +76,7 @@ if(($query3->rowCount() == 0) && !empty($_POST['id_breed'])){
 					<p>
 						<h5>Age: ". $row['age'] ." years</h5>
 						<h5>Gender: ". $row['gender'] ."</h5>
+						<h5>Breed number: ". $row['breed'] ."</h5>
 
 						<br/>
 				 </div>
@@ -83,6 +88,8 @@ if(($query3->rowCount() == 0) && !empty($_POST['id_breed'])){
 			</div>
 	";
 	}
+	$output = $output . "</div>";
+
 
 }
 // SELECT AGE
@@ -97,6 +104,7 @@ if(($query5->rowCount() == 0) && !empty($_POST['search_name'])){
 	$output = $output."<br/><div class='alert alert-danger' role='alert'>No results found</div>" ;
 
 }elseif(isset($_POST['search_name'])&& !empty($_POST['search_name'])){
+	$output = $output . "<div class='panel-body '>";
 
 	while($row = $query5->fetch()) {
 		$output = $output . "
@@ -109,6 +117,7 @@ if(($query5->rowCount() == 0) && !empty($_POST['search_name'])){
 					<p>
 						<h5>Age: ". $row['age'] ." years</h5>
 						<h5>Gender: ". $row['gender'] ."</h5>
+						<h5>Breed number: ". $row['breed'] ."</h5>
 
 						<br/>
 				 </div>
@@ -120,6 +129,8 @@ if(($query5->rowCount() == 0) && !empty($_POST['search_name'])){
 			</div>
 	";
 	}
+	$output = $output . "</div>";
+
 
 }
 
@@ -261,10 +272,8 @@ if(($query5->rowCount() == 0) && !empty($_POST['search_name'])){
 
 
 
-<div class="panel panel-default">
-  <div class="panel-body">
+<div class="panel panel-default borderLine">
 		<?php echo($output); ?>
-	</div>
 </div>
 
 

@@ -414,3 +414,6 @@ header .intro-text .intro-heading {
 .spanRed{
 	color:red;
 }
+.borderLine{
+	border-color: #FFF;
+}
