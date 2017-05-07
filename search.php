@@ -9,17 +9,18 @@ $name2 = htmlspecialchars($_POST['search_name']);
 $age =$_POST['select_age'];
 
 //Query
-$query = $bdd->query('SELECT * FROM dog WHERE name LIKE "%'.$q.'%" ORDER BY dog_id DESC');
-$query2 = $bdd->query('SELECT * FROM dog_breed ORDER BY description_breed');
-$query3 = $bdd->query('SELECT * FROM dog WHERE breed LIKE "%'.$breed.'%"');
-$query4 = $bdd->query('SELECT DISTINCT age FROM dog ORDER BY age ASC');
-$query5 = $bdd->query('SELECT * FROM dog WHERE name LIKE "%' . $name2 . '%" AND age="' . $age . '" ORDER BY name');
+$query = $bdd->prepare('SELECT * FROM dog WHERE name LIKE "%'.$q.'%" ORDER BY dog_id DESC');
+$query2 = $bdd->prepare('SELECT * FROM dog_breed ORDER BY description_breed');
+$query3 = $bdd->prepare('SELECT * FROM dog WHERE breed LIKE "%'.$breed.'%"');
+$query4 = $bdd->prepare('SELECT DISTINCT age FROM dog ORDER BY age ASC');
+$query5 = $bdd->prepare('SELECT * FROM dog WHERE name LIKE "%' . $name2 . '%" AND age="' . $age . '" ORDER BY name');
 
 //output
 $output ="";
 $output2= "";
 $output3 = "";
-
+//FORM 1
+$query->execute();
 if($query->rowCount() == 0){
 
 	$output = $output."<br/><div class='alert alert-danger' role='alert'>No results found</div>" ;
@@ -52,11 +53,15 @@ if($query->rowCount() == 0){
 
 }
 // SELECT
+$query2->execute();
 	while ($row = $query2->fetch()) {
 		$output2 =$output2."<option name=id_breed_".$row['dog_breed_id']." value=".$row['dog_breed_id'].">".$row['description_breed']."</option>";
 	}
 
 //FORM 2
+
+$query3->execute();
+
 if(($query3->rowCount() == 0) && !empty($_POST['id_breed'])){
 
 	$output = $output."<br/><div class='alert alert-danger' role='alert'>No results found</div>" ;
@@ -93,12 +98,15 @@ if(($query3->rowCount() == 0) && !empty($_POST['id_breed'])){
 
 }
 // SELECT AGE
+$query4->execute();
 
 	while ($row = $query4->fetch()) {
 		$output3 =$output3."<option  value=".$row['age'].">".$row['age']." years</option>";
 	}
 
 //FORM 3
+$query5->execute();
+
 if(($query5->rowCount() == 0) && !empty($_POST['search_name'])){
 
 	$output = $output."<br/><div class='alert alert-danger' role='alert'>No results found</div>" ;

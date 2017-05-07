@@ -1,22 +1,21 @@
-<?php
-ini_set('display_errors','on');
-error_reporting(E_ALL);
-?>
+
 <?php
 //Connection database
 	include ("database.php");
 
 //variables
 $id = $_GET['id'];
+$userID = $_POST['userID'];
+$date_sponsored = $_POST['date_sponsored'];
+$amount_paid = $_POST['amount_paid'];
 //query
 $query = $bdd->prepare('SELECT * FROM dog INNER JOIN dog_breed ON dog.breed = dog_breed.dog_breed_id INNER JOIN colour on dog.colour = colour.colour_id WHERE dog_id = "'.$id.'"');
-$query2 = $bdd->prepare('UPDATE dog SET adopted = "Y" WHERE dog_id = "'.$id.'"');
-$query3= $bdd->prepare('SELECT dog_id, adopted FROM dog WHERE dog_id = "'.$id.'"');
-
+$query1= $bdd->prepare('SELECT * FROM user WHERE user_id = "'.$userID.'" ');
+$query2= $bdd->prepare("INSERT INTO sponsored_dog (dog_id, user_id, date_sponsored, paid_per_month) VALUES($id, $userID, '$date_sponsored',$amount_paid)");
 //output
 $output= "";
-$output2= "";
-
+$output2="";
+//Confim sponsorship panel
 	$query->execute();
 	$row = $query->fetch();
 
@@ -34,60 +33,36 @@ $output2= "";
 	}
 
 		$output = $output . "
-				<div class='thumbnail'>
-				<img class='icon-article' src=". $row['picture_url'] ." alt='dog_image'>
-					<div class='caption'>
-						<div class='option'>
-						<h3 class='name_dog'>". $row['name'] ."</h3>
-
-						<h5>Age: ". $row['age'] ." years</h5>
-						<h5>Gender: ". $row['gender'] ."</h5>
-						<h5>Breed: ". $row['description_breed'] ."</h5>
-						<h5>Color: ". $row['description_color'] ."</h5>
-						<br/>
-						<h5>Like Other Dog: ". $likes_other_dog ."</h5>
-						<h5>Like To Play: ". $likes_to_play ."</h5>
-						<br/>
-				 </div>
-				 <div class='align-centered'>
-				 <h5>Description:</h5><br/>
-				". $row['description_dog'] ."
-				 </div>
-
-					</div>
-					<div>
-					</div>
-	";
-
-//Adopt this dog
-//$query2 = $bdd->query('UPDATE dog SET adopted = "Y" WHERE dog_id = "'.$id.'"');
-$query3->execute();
-$row = $query3->fetch();
-$adopted = $row['adopted'];
-
-if($adopted == "N" && isset($_POST['btn_adopted'])){
-	$query2->execute();
-	$output = $output . "<div class='alert alert-success align-centered' role='alert'>This dog is now adopted </div>";
-
-
-}elseif($adopted =="Y"){
-	$output = $output . "<div class='alert alert-info align-centered' role='alert'>Dog already adopted </div>";
-}else{
-
-	$adopted = $row['adopted'];
-	$output = $output . "
-	<section class='align-centered'>
-	<h5>Actions:</h5><br/>
-	<form method = 'POST'>
-		<div class='btn-group'>
-			<a href='sponsor_details.php?id=".$row['dog_id']."' class='btn btn-success btn-lg' role='button'>Sponsor this dog</a>			</div>
-			<div class='btn-group'>
-			<button type='submit'  name = 'btn_adopted' class='btn btn-success btn-lg'>Adopt this dog</button>
+		<div class='panel panel-success'>
+			<div class='panel-heading'>
+			<h3 class='panel-title'>Confirm your sponsorship</h3>
 			</div>
-	</form>
-	</section>
+			<div class='panel-body align-centered'>
+			<img class='img_confirm' width=124 height=124 src=". $row['picture_url'] ." alt='dog_image'>
+
+			<div class ='details_sponsor'>
+			<h5>Name : ". $row['name'] ."</h5>
+			<h5>Age : ". $row['age'] ."</h5>
+			<h5>Gender : ". $row['description_breed'] ."</h5>
+			</div>
+			</div>
+		</div>
 	";
-}
+	//Form Control
+	$query1->execute();
+	$row = $query1->fetch();
+	if($userID == $row['user_id']){
+		if(isset($_POST['date_sponsored']) && isset($_POST['amount_paid'])){
+			$query2->execute();
+			$output2 = $output2 . "<div class='alert alert-success align-centered' role='alert'>Thank you for sponsoring this dog.</div>";
+
+
+		}
+	}else {
+		$output2 = $output2 . "<div class='alert alert-danger align-centered' role='alert'>Please enter a correct user. </div>";
+
+	}
+
 
 
 ?>
@@ -157,17 +132,53 @@ if($adopted == "N" && isset($_POST['btn_adopted'])){
 			</div>
 		</nav>
 		<!-- Navigation end -->
+<section>
 
 <div class="page-header">
-  <h1 class="titleh1">More details</h1>
+  <h1 class="titleh1">Sponsor details</h1>
 </div>
 <div class="panel panel-default">
   <div class="panel-body">
+
 		<?php echo($output);
 		 ?>
+		 <h2 class="titleh1">Your informations</h2>
+		 <?php echo($output2);
+ 		 ?>
+		 <form method="POST">
+		 <div class='col-sm-6 col-md-4'>
+		 	<div class="input-group">
+	  		<span class="input-group-addon" id="sizing-addon2">UserID</span>
+	  		<input type="text" name="userID" class="form-control" placeholder="Insert your UserID" aria-describedby="sizing-addon2" required>
+			</div>
+		</div>
+		<div class='col-sm-6 col-md-4'>
+
+		 <div class="input-group">
+			 <span class="input-group-addon" id="sizing-addon2">Amount paid/month</span>
+			 <input name="amount_paid" type="number" step="0.01" class="form-control" placeholder="e.g.12.50" aria-describedby="sizing-addon2" required>
+			 <span class="input-group-addon">£</span>
+
+		 </div>
+	 </div>
+	 <div class='col-sm-6 col-md-4'>
+
+		<div class="input-group">
+			<span class="input-group-addon" id="sizing-addon2">Date Sponsored</span>
+			<input type="date" name="date_sponsored" class="form-control" aria-describedby="sizing-addon2" required>
+
+		</div>
+		</div>
+		<br/>
+
+			<button type="submit" class="btn btn-success column-submit ">Submit <span class="glyphicon glyphicon-chevron-right"></span></button>
+	</div>
 
 	</div>
-</div>
+</form>
+
+</section>
+
 <!-- Footer -->
 <footer>
 

@@ -5,7 +5,7 @@ html, body {
 
 body {
 	font-family: 'Lato', sans-serif;
-	color: #6d6d6d;
+	/*color: #6d6d6d;*/
 	font-smooth:always;
 }
 
@@ -416,4 +416,22 @@ header .intro-text .intro-heading {
 }
 .borderLine{
 	border-color: #FFF;
+}
+
+.details_sponsor{
+	display:inline;
+	font-weight: bold;
+}
+.x360x{
+width: 360px;
+}
+
+.img_confirm{
+	margin-bottom: 15px;
+}
+.column-submit{
+	display: block;
+  width: auto;
+  margin-left: auto;
+	margin-top: 50px;
 }
