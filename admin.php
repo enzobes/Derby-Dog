@@ -1,3 +1,42 @@
+<?php
+//Connection database
+
+	include ("database.php");
+
+$query = $bdd->prepare('SELECT * FROM dog WHERE adopted = "Y" ORDER BY name ASC');
+$query2= $bdd->prepare('SELECT DISTINCT user.user_id, first_name, last_name, address_line_1, postcode FROM dog INNER JOIN sponsored_dog ON dog.dog_id = sponsored_dog.dog_id INNER JOIN user ON sponsored_dog.user_id = user.user_id WHERE adopted = "Y"');
+
+$output="";
+$output2="";
+
+$query->execute();
+while ($row = $query->fetch()){
+			$output = $output . "
+			<div class='col-sm-6 col-md-4'>
+			<div class='thumbnail'>
+				<img class='icon-article' src=". $row['picture_url'] ." alt='dog_adopted'>
+			<div class='caption'>
+				<h3 class='align-centered'>". $row['name'] ."</h3>
+			</div>
+		</div>
+	</div>
+			";
+}
+$query2->execute();
+
+while ($row = $query2->fetch()){
+			$output2 = $output2 . "
+			<tr>
+				<th scope='row'>".$row['user_id']."</th>
+				<td>".$row['first_name']."</td>
+				<td>".$row['last_name']."</td>
+				<td>".$row['address_line_1']."</td>
+				<td>".$row['postcode']."</td>
+			</tr>
+
+			";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -25,7 +64,7 @@
 						<div class="intro-text">
 								<div class="intro-heading-small">Welcome to Derby Dog!</div>
 								<div class="intro-lead-in">You can sponsor a dog</div>
-								<a href="sponsor.html" class="btn-xl">Tell Me More</a>
+								<a href="sponsor.php" class="btn-xl">Tell Me More</a>
 						</div>
 				</div>
 			</div>
@@ -43,25 +82,25 @@
 					</button>
 					<figure id= "icone_nav">
 
-					<a class="navbar-brand" href="index.html"><strong><img src="images/dog-icon.png" alt="icone" width="48" height="48" >Derby Dogs</strong><br /></a>
+					<a class="navbar-brand" href="index.php"><strong><img src="images/dog-icon.png" alt="icone" width="48" height="48" >Derby Dogs</strong><br /></a>
 
 					</figure>
 				</div>
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li>
-							<a href="index.html" title="Home"><span data-hover="Home" >Home</span></a>
+							<a href="index.php" title="Home"><span data-hover="Home" >Home</span></a>
 						</li>
 						<li>
-							<a href="search.html" title="search"><span data-hover="Search ">Search</span></a>
+							<a href="search.php" title="search"><span data-hover="Search ">Search</span></a>
 						</li>
 
 						<li>
-							<a href="sponsor.html" ><span data-hover="Sponsor">Sponsor</span></a>
+							<a href="sponsor.php" ><span data-hover="Sponsor">Sponsor</span></a>
 
 						</li>
 						<li class="active">
-							<a href="admin.html" title="admin"><span data-hover="Admin">Admin</span></a>
+							<a href="admin.php" title="admin"><span data-hover="Admin">Admin</span></a>
 						</li>
 
 
@@ -78,13 +117,36 @@
   <div class="panel-heading">
     <h3 class="panel-title">Admin Page</h3>
   </div>
-  <div class="panel-body">
-    Welcome to the Admin Dashboard !
-  </div>
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus cursus ante rutrum enim sagittis dapibus. Mauris risus tellus, auctor in sapien a, pretium ultricies lectus. Morbi ac dignissim libero. Nunc ut fermentum nulla. Vivamus ultrices vehicula faucibus. Quisque vulputate massa est, non maximus orci sagittis non.
-	</p>
-</div>
+	<div class="page-header">
+	  <h1 class="titleh1">All dog adopted</h1>
+	</div>
+	<div class="row paddingAdmin">
+		<?php echo ($output); ?>
+	</div>
+
+	<div class="page-header">
+	  <h1 class="titleh1">All sponsors of adopted dogs</h1></h1>
+		<table class='table paddingAdmin'>
+			<thead class ="strongCell">
+				<tr>
+					<th>ID</th>
+					<td>First Name</td>
+					<td>Last Name</td>
+					<td>Address</td>
+					<td>Postcode</td>
+
+				</tr>
+			</thead>
+
+		<tbody>
+					<?php echo ($output2); ?>
+
+
+		</tbody>
+
+		</table>
+
+	</div>
 
 
 </section>
@@ -108,10 +170,10 @@
 			<div class="col-md-3">
 				<h6>Navigation</h6>
 				<ul>
-					<li><a href="index.html" >Home</a></li>
-					<li><a href="search.html" >Search</a></li>
-					<li><a href="sponsor.html" >Sponsor</a></li>
-					<li><a href="admin.html">Admin</a></li>
+					<li><a href="index.php" >Home</a></li>
+					<li><a href="search.php" >Search</a></li>
+					<li><a href="sponsor.php" >Sponsor</a></li>
+					<li><a href="admin.php">Admin</a></li>
 				</ul>
 			</div>
 			<div class="col-md-3 contact-info">

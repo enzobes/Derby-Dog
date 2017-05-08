@@ -13,7 +13,7 @@ $output="";
 
 while ($row = $result->fetch()){
 			$output = $output . "
-				<div class='col-sm-6 col-md-4'>
+			<div class='col-sm-6 col-md-4'>
 					<div class='thumbnail'>
 					<img src=". $row['picture_url'] ." alt='dog_image'>
 						<div class='caption'>
@@ -24,9 +24,9 @@ while ($row = $result->fetch()){
 							<h5>Gender: ". $row['gender'] ."</h5>
 							</br>
 			 		 </div>
-					 ". $row['description'] ."
+					 ". $row['description_dog'] ."
 					 </p>
-					 <p class='align-centered'><a href='#' class='btn btn-default' role='button'>More details</a></p>
+					 <p class='align-centered'><a href='more_details.php?id=".$row['dog_id']."' class='btn btn-default' role='button'>More details</a></p>
 				 		</div>
 				 	</div>
 				</div>
@@ -91,7 +91,7 @@ while ($row = $result->fetch()){
 							<a href="index.php" title="Home"><span data-hover="Home" >Home</span></a>
 						</li>
 						<li>
-							<a href="search.html" title="search"><span data-hover="Search ">Search</span></a>
+							<a href="search.php" title="search"><span data-hover="Search ">Search</span></a>
 						</li>
 
 						<li class="active">

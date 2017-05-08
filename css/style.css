@@ -218,7 +218,7 @@ width: auto;
 
 #adminPage
 {
-	color:red;
+	color:black;
 }
 #adminPage p
 {
@@ -434,4 +434,12 @@ width: 360px;
   width: auto;
   margin-left: auto;
 	margin-top: 50px;
+}
+
+.paddingAdmin{
+	padding: 20px;
+}
+
+.strongCell{
+	font-weight: bold;
 }

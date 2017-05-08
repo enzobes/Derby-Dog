@@ -112,7 +112,7 @@ if($adopted == "N" && isset($_POST['btn_adopted'])){
 						<div class="intro-text">
 								<div class="intro-heading-small">Welcome to Derby Dog!</div>
 								<div class="intro-lead-in">You can sponsor a dog</div>
-								<a href="sponsor.html" class="btn-xl">Tell Me More</a>
+								<a href="sponsor.php" class="btn-xl">Tell Me More</a>
 						</div>
 				</div>
 			</div>
@@ -130,25 +130,25 @@ if($adopted == "N" && isset($_POST['btn_adopted'])){
 					</button>
 					<figure id= "icone_nav">
 
-					<a class="navbar-brand" href="index.html"><strong><img src="images/dog-icon.png" alt="icone" width="48" height="48" >Derby Dogs</strong><br /></a>
+					<a class="navbar-brand" href="index.php"><strong><img src="images/dog-icon.png" alt="icone" width="48" height="48" >Derby Dogs</strong><br /></a>
 
 					</figure>
 				</div>
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li>
-							<a href="index.html" title="Home"><span data-hover="Home" >Home</span></a>
+							<a href="index.php" title="Home"><span data-hover="Home" >Home</span></a>
 						</li>
 						<li class="active">
-							<a href="search.html" title="search"><span data-hover="Search ">Search</span></a>
+							<a href="search.php" title="search"><span data-hover="Search ">Search</span></a>
 						</li>
 
 						<li>
-							<a href="sponsor.html" ><span data-hover="Sponsor">Sponsor</span></a>
+							<a href="sponsor.php" ><span data-hover="Sponsor">Sponsor</span></a>
 
 						</li>
 						<li>
-							<a href="admin.html" title="admin"><span data-hover="Admin">Admin</span></a>
+							<a href="admin.php" title="admin"><span data-hover="Admin">Admin</span></a>
 						</li>
 
 
@@ -188,10 +188,10 @@ if($adopted == "N" && isset($_POST['btn_adopted'])){
 			<div class="col-md-3">
 				<h6>Navigation</h6>
 				<ul>
-					<li><a href="index.html" >Home</a></li>
-					<li><a href="search.html" >Search</a></li>
-					<li><a href="sponsor.html" >Sponsor</a></li>
-					<li><a href="admin.html">Admin</a></li>
+					<li><a href="index.php" >Home</a></li>
+					<li><a href="search.php" >Search</a></li>
+					<li><a href="sponsor.php" >Sponsor</a></li>
+					<li><a href="admin.php">Admin</a></li>
 				</ul>
 			</div>
 			<div class="col-md-3 contact-info">

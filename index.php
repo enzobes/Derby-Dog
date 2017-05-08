@@ -82,7 +82,7 @@ while ($row = $result->fetch()){
 							<a href="index.php" title="Home"><span data-hover="Home" >Home</span></a>
 						</li>
 						<li>
-							<a href="search.html" title="search"><span data-hover="Search ">Search</span></a>
+							<a href="search.php" title="search"><span data-hover="Search ">Search</span></a>
 						</li>
 
 						<li>
@@ -90,7 +90,7 @@ while ($row = $result->fetch()){
 
 						</li>
 						<li>
-							<a href="admin.html" title="admin"><span data-hover="Admin">Admin</span></a>
+							<a href="admin.php" title="admin"><span data-hover="Admin">Admin</span></a>
 						</li>
 
 
@@ -166,9 +166,9 @@ while ($row = $result->fetch()){
 					<h6>Navigation</h6>
 					<ul>
 						<li><a href="index.php" >Home</a></li>
-						<li><a href="search.html" >Search</a></li>
+						<li><a href="search.php" >Search</a></li>
 						<li><a href="sponsor.php" >Sponsor</a></li>
-						<li><a href="admin.html">Admin</a></li>
+						<li><a href="admin.php">Admin</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 contact-info">
