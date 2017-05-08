@@ -80,7 +80,7 @@ if($adopted == "N" && isset($_POST['btn_adopted'])){
 	<h5>Actions:</h5><br/>
 	<form method = 'POST'>
 		<div class='btn-group'>
-			<a href='sponsor_details.php?id=".$row['dog_id']."' class='btn btn-success btn-lg' role='button'>Sponsor this dog</a>			</div>
+			<a href='sponsor_details.php?id=".$row['dog_id']."' class='btn btn-success btn-lg' role='button'>Sponsor this dog</a></div>
 			<div class='btn-group'>
 			<button type='submit'  name = 'btn_adopted' class='btn btn-success btn-lg'>Adopt this dog</button>
 			</div>

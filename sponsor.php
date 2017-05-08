@@ -99,7 +99,7 @@ while ($row = $result->fetch()){
 
 						</li>
 						<li>
-							<a href="admin.html" title="admin"><span data-hover="Admin">Admin</span></a>
+							<a href="admin.php" title="admin"><span data-hover="Admin">Admin</span></a>
 						</li>
 
 

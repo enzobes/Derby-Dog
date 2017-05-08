@@ -364,8 +364,16 @@ header .intro-text .intro-heading {
 }
 
 .image-article{
-	width: 450px;
-	height: 250px;
+	width: 450px !important;
+	height: 250px !important;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+}
+.image-article-small{
+	width: 128px !important;
+	height: 128px !important;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -438,8 +446,13 @@ width: 360px;
 
 .paddingAdmin{
 	padding: 20px;
+	margin-left: 10px;
 }
 
 .strongCell{
 	font-weight: bold;
+}
+
+.marginRow{
+	margin-bottom: 20px;
 }
