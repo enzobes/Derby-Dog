@@ -1,4 +1,3 @@
-
 <?php
 //Connection database
 	include ("database.php");
