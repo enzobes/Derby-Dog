@@ -124,7 +124,7 @@ while ($row = $result->fetch()){
 	  </div>
 </div>
 
-	<p id="buttonLG"><a class="btn btn-success btn-lg" href="search.html" role="button">Search for a dog to sponsor <span class="glyphicon glyphicon-chevron-right"></span></a></p>
+	<p id="buttonLG"><a class="btn btn-success btn-lg" href="search.php" role="button">Search for a dog to sponsor <span class="glyphicon glyphicon-chevron-right"></span></a></p>
 <div class="row" id="columnx3">
 	<div class="col-sm-6 col-md-4">
 	<div class="thumbnail">
@@ -190,9 +190,9 @@ while ($row = $result->fetch()){
 				<h6>Navigation</h6>
 				<ul>
 					<li><a href="index.php" >Home</a></li>
-					<li><a href="search.html" >Search</a></li>
+					<li><a href="search.php" >Search</a></li>
 					<li><a href="sponsor.php" >Sponsor</a></li>
-					<li><a href="admin.html">Admin</a></li>
+					<li><a href="admin.php">Admin</a></li>
 				</ul>
 			</div>
 			<div class="col-md-3 contact-info">

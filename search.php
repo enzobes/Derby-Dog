@@ -21,9 +21,14 @@ $output2= "";
 $output3 = "";
 //FORM 1
 $query->execute();
+
 if($query->rowCount() == 0){
 
-	$output = $output."<br/><div class='alert alert-danger' role='alert'>No results found</div>" ;
+	$output = $output."<br/><div class='alert alert-danger align-centered' role='alert'>No results found</div>" ;
+
+}elseif(empty($q) && isset($_POST['button_search'])){
+
+	$output = $output."<br/><div class='alert alert-danger align-centered' role='alert'>Please fill in the name field</div>" ;
 
 }elseif(isset($_POST['q'])&& !empty($_POST['q'])){
 
@@ -109,6 +114,10 @@ $query5->execute();
 if(($query5->rowCount() == 0) && !empty($_POST['search_name'])){
 
 	$output = $output."<br/><div class='alert alert-danger' role='alert'>No results found</div>" ;
+
+}elseif(empty($name2) && isset($_POST['button_search2'])){
+
+	$output = $output."<br/><div class='alert alert-danger align-centered' role='alert'>Please fill in the name field in addition to the age</div>" ;
 
 }elseif(isset($_POST['search_name'])&& !empty($_POST['search_name'])){
 	$output = $output . "<div class='panel-body '>";
@@ -225,7 +234,7 @@ if(($query5->rowCount() == 0) && !empty($_POST['search_name'])){
 						<form method="POST">
 							<input type="search" name="q"  class="form-control"  placeholder="Input a dog name ....">
 							<span style="display:block;" class="input-group-btn">
-								<button class="btn btn-success" name="button" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+								<button class="btn btn-success" name="button_search" type="submit"><span class="glyphicon glyphicon-search"></span></button>
 							</span>
 						</form>
 
@@ -256,14 +265,14 @@ if(($query5->rowCount() == 0) && !empty($_POST['search_name'])){
 
 					<div class="input-group input-group2">
 						<form method="POST">
-							<select name = "select_age" style="width:25%" class="form-control">
+							<select name = "select_age" style="width:26%" class="form-control">
 								<?php echo $output3 ?>
 
 							</select>
 							<span class="input-group-btn">
 								<input type="text" class="form-control"  name ="search_name" placeholder="Input a dog name ....">
 
-								<button class="btn btn-success" name="btn_age" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+								<button class="btn btn-success" name="button_search2" type="submit"><span class="glyphicon glyphicon-search"></span></button>
 							</span>
 						</form>
 

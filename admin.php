@@ -170,7 +170,7 @@ $output3="";
 							Deletes all sponsorships of adopted dogs
 						</h4>
 						<form method = 'POST'>
-							<button name="delete_sponsorship" type="submit" class="btn btn-danger btn-lg" role="button">Delete</button>
+							<button name="delete_sponsorship" type="submit" class="btn btn-danger btn-lg" role="button"><span class="glyphicon glyphicon-trash"></span> Delete</button>
 						</form>
 					</div>
 					<div class='col-sm-6'>
@@ -178,7 +178,7 @@ $output3="";
 							Deletes all adopted dogs
 						</h4>
 						<form method = 'POST'>
-							<button name="delete_adopted" type="submit" class="btn btn-danger btn-lg" role="button">Delete</button>
+							<button name="delete_adopted" type="submit" class="btn btn-danger btn-lg" role="button"><span class="glyphicon glyphicon-trash"></span> Delete</button>
 						</form>
 
 					</div>
