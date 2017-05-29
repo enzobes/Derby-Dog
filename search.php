@@ -42,13 +42,11 @@ if($query->rowCount() == 0){
 					<div class='caption'>
 						<div class='option'>
 						<h3 class='name_dog'>". $row['name'] ."</h3>
-						<p>
 						<h5>Age: ". $row['age'] ." years</h5>
 						<h5>Gender: ". $row['gender'] ."</h5>
 						<br/>
 				 </div>
 				 ". $row['description_dog'] ."
-				 		</p>
 				 <p class='align-centered'><a href='more_details.php?id=".$row['dog_id']."' class='btn btn-default' role='button'>More details</a></p>
 					</div>
 				</div>
@@ -61,7 +59,7 @@ if($query->rowCount() == 0){
 // SELECT
 $query2->execute();
 	while ($row = $query2->fetch()) {
-		$output2 =$output2."<option name=id_breed_".$row['dog_breed_id']." value=".$row['dog_breed_id'].">".$row['description_breed']."</option>";
+		$output2 =$output2."<option id=id_breed_".$row['dog_breed_id']." value=".$row['dog_breed_id'].">".$row['description_breed']."</option>";
 	}
 
 //FORM 2
@@ -84,14 +82,12 @@ if(($query3->rowCount() == 0) && !empty($_POST['id_breed'])){
 					<div class='caption'>
 						<div class='option'>
 						<h3 class='name_dog'>". $row['name'] ."</h3>
-					<p>
 						<h5>Age: ". $row['age'] ." years</h5>
 						<h5>Gender: ". $row['gender'] ."</h5>
 
 						<br/>
 				 </div>
 				 ". $row['description_dog'] ."
-				 </p>
 				 <p class='align-centered'><a href='more_details.php?id=".$row['dog_id']."' class='btn btn-default' role='button'>More details</a></p>
 					</div>
 				</div>
@@ -131,7 +127,6 @@ if(($query5->rowCount() == 0) && !empty($_POST['search_name'])){
 					<div class='caption'>
 						<div class='option'>
 						<h3 class='name_dog'>". $row['name'] ."</h3>
-					<p>
 						<h5>Age: ". $row['age'] ." years</h5>
 						<h5>Gender: ". $row['gender'] ."</h5>
 						<h5>Breed number: ". $row['breed'] ."</h5>
@@ -139,7 +134,6 @@ if(($query5->rowCount() == 0) && !empty($_POST['search_name'])){
 						<br/>
 				 </div>
 				 ". $row['description_dog'] ."
-				 </p>
 				 <p class='align-centered'><a href='more_details.php?id=".$row['dog_id']."' class='btn btn-default' role='button'>More details</a></p>
 					</div>
 				</div>
@@ -223,7 +217,7 @@ if(($query5->rowCount() == 0) && !empty($_POST['search_name'])){
 	<div class="page-header">
 		<h1 class="titleh1">Search Forms</h1>
 	</div>
-	<section class="centerSection">
+	<div class="centerSection">
 
 		<div class="panel panel-success align-centered">
 			<div id="rowid" class="row" >
@@ -282,7 +276,7 @@ if(($query5->rowCount() == 0) && !empty($_POST['search_name'])){
 				</div>
 			</div>
 		</div>
-	</section>
+	</div>
 
 
 
@@ -327,14 +321,14 @@ if(($query5->rowCount() == 0) && !empty($_POST['search_name'])){
 							<a href="#" class="facebook"></a> <a href="#" class="pinterest"></a> <a href="#" class="twitter"></a>
 						</p>
 						<p class="c-details">
-							<span>Mail: </span> <a href="#" title="">derbydog@dog.com</a><br >
+							<span>Mail: </span> <a href="mailto:derbydog@dog.com" title="">derbydog@dog.com</a><br >
 							<span>Tel:</span> 00336 98 39 92 58
 						</p>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-12 copyright">
-						<p>&copy; Copyright 2017. All rights reserved. <a href="#" title="Derby Dog">Derby Dog</a></p>
+						<p>&copy; Copyright 2017. All rights reserved. <a href="index.php" title="Derby Dog">Derby Dog</a></p>
 					</div>
 				</div>
 			</div>

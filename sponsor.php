@@ -15,13 +15,11 @@ while ($row = $result->fetch()){
 						<div class='caption'>
 							<div class='option'>
 							<h3 class='name_dog'>". $row['name'] ."</h3>
-						<p>
 							<h5>Age: ". $row['age'] ." years</h5>
 							<h5>Gender: ". $row['gender'] ."</h5>
-							</br>
+							<br/>
 			 		 </div>
 					 ". $row['description_dog'] ."
-					 </p>
 					 <p class='align-centered'><a href='more_details.php?id=".$row['dog_id']."' class='btn btn-default' role='button'>More details</a></p>
 				 		</div>
 				 	</div>
@@ -125,42 +123,7 @@ while ($row = $result->fetch()){
 </div>
 
 	<p id="buttonLG"><a class="btn btn-success btn-lg" href="search.php" role="button">Search for a dog to sponsor <span class="glyphicon glyphicon-chevron-right"></span></a></p>
-<div class="row" id="columnx3">
-	<div class="col-sm-6 col-md-4">
-	<div class="thumbnail">
-		<img src="images/golden.jpg" alt="golden" />
-		<div class="caption">
-			<h3 class="titleh3_sp">Golden Retriver</h3>
-			<p>The Golden Retriever is a large-sized breed of dog bred as gun dogs to retrieve shot waterfowl such as ducks and upland game birds during hunting and shooting parties,
-				 and were named 'retriever' because of their ability to retrieve shot game undamaged. Golden Retrievers have an instinctive love of water, and are easy to train to basic.
-				 They are a long-coated breed.</p><br/><br/>
-		</div>
-	</div>
-</div>
 
-	<div class="col-sm-6 col-md-4">
-		<div class="thumbnail">
-			<img src="images/bouvier.jpeg" alt="Bernese">
-			<div class="caption">
-				<h3 class="titleh3_sp">Bernese Mountain</h3>
-				<p>The Bernese Mountain Dog, called in German the Berner Sennenhund, is a large-sized breed of dog, one of the four breeds of Sennenhund-type dogs from the Swiss Alps.
-					The name Sennenhund is derived from the German Senne (“alpine pasture”) and Hund (“dog”), as they accompanied the alpine herders and dairymen called Senn. Berner (or Bernese in English) refers to the area of the breed’s origin,
-					in the canton of Bern. This mountain dog was originally kept as a general farm dog. </p>
-			</div>
-		</div>
-	</div>
-	<div class="col-sm-6 col-md-4">
-		<div class="thumbnail">
-			<img src="images/bulldog.jpg" alt="French Bulldog">
-			<div class="caption">
-				<h3 class="titleh3_sp">French Bulldog</h3>
-				<p>The French Bulldog also known as the Frenchie is a small breed of domestic dog. Frenchies were the result in the 1800s of a cross between bulldog ancestors imported from England and local ratters in Paris (France).
-				In 2014, they were the fourth most popular registered dog in the United Kingdom and in the U.S. the ninth most popular AKC registered dog breed.
-				They were rated the third most popular dog in Australia (for 2017).</p><br/>
-			</div>
-		</div>
-	</div>
-</div>
 
 <!-- SPONSORSHIP SECTION -->
 
@@ -201,14 +164,14 @@ while ($row = $result->fetch()){
 					<a href="#" class="facebook"></a> <a href="#" class="pinterest"></a> <a href="#" class="twitter"></a>
 				</p>
 				<p class="c-details">
-					<span>Mail: </span> <a href="#" title="">derbydog@dog.com</a><br >
+					<span>Mail: </span> <a href="mailto:derbydog@dog.com" title="">derbydog@dog.com</a><br/>
 					<span>Tel:</span> 00336 98 39 92 58
 				</p>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-12 copyright">
-				<p>&copy; Copyright 2017. All rights reserved. <a href="#" title="Derby Dog">Derby Dog</a></p>
+				<p>&copy; Copyright 2017. All rights reserved. <a href="index.php" title="Derby Dog">Derby Dog</a></p>
 			</div>
 		</div>
 	</div>

@@ -210,14 +210,14 @@ $output2="";
 					<a href="#" class="facebook"></a> <a href="#" class="pinterest"></a> <a href="#" class="twitter"></a>
 				</p>
 				<p class="c-details">
-					<span>Mail: </span> <a href="#" title="">derbydog@dog.com</a><br >
+					<span>Mail: </span> <a href="mailto:derbydog@dog.com" title="">derbydog@dog.com</a><br >
 					<span>Tel:</span> 00336 98 39 92 58
 				</p>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-12 copyright">
-				<p>&copy; Copyright 2017. All rights reserved. <a href="#" title="Derby Dog">Derby Dog</a></p>
+				<p>&copy; Copyright 2017. All rights reserved. <a href="index.php" title="Derby Dog">Derby Dog</a></p>
 			</div>
 		</div>
 	</div>

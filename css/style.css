@@ -291,7 +291,13 @@ header .intro-text .intro-heading {
   line-height: 75px;
   margin-bottom: 50px;
 }
-
+#columnx3b{
+	margin : 50px;
+}
+#columnx3b img{
+	height: 300px;
+	width: 500px;
+}
 .btn-xl {
   color: white;
   background-color: #65c178;

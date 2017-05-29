@@ -39,7 +39,7 @@ $query2->execute();
 while ($row = $query2->fetch()){
 	$output2 = $output2 . "
 	<tr>
-		<td scope='row'>".$row['user_id']."</td>
+		<td>".$row['user_id']."</td>
 		<td>".$row['first_name']."</td>
 		<td>".$row['last_name']."</td>
 		<td>".$row['address_line_1']."</td>
@@ -126,7 +126,6 @@ $output3="";
 
 	<div id="adm" class="alert alert-danger" role="alert"><h2>Admin Page</h2></div>
 	<header>
-		<section>
 			<div id="adminPage" class="panel panel-danger">
 				<div class="panel-heading">
 					<h3 class="panel-title">Admin Page</h3>
@@ -166,7 +165,7 @@ $output3="";
 					<div class='align-centered'>
 
 						<form method = 'POST'>
-							<button name="delete_sponsorship" type="submit" class="btn btn-danger btn-lg" role="button"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+							<button name="delete_sponsorship" type="submit" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-trash"></span> Delete</button>
 						</form>
 					</div>
 
@@ -176,7 +175,7 @@ $output3="";
 
 
 
-			</section>
+			</div>
 		</header>
 
 			<!-- Footer -->
@@ -211,14 +210,14 @@ $output3="";
 									<a href="#" class="facebook"></a> <a href="#" class="pinterest"></a> <a href="#" class="twitter"></a>
 								</p>
 								<p class="c-details">
-									<span>Mail: </span> <a href="#" title="">derbydog@dog.com</a><br >
+									<span>Mail: </span> <a href="mailto:derbydog@dog.com" title="">derbydog@dog.com</a><br >
 									<span>Tel:</span> 00336 98 39 92 58
 								</p>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-12 copyright">
-								<p>&copy; Copyright 2017. All rights reserved. <a href="#" title="Derby Dog">Derby Dog</a></p>
+								<p>&copy; Copyright 2017. All rights reserved. <a href="index.php" title="Derby Dog">Derby Dog</a></p>
 							</div>
 						</div>
 					</div>

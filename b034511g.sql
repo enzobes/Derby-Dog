@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 09 Mai 2017 à 10:41
+-- Généré le :  Lun 29 Mai 2017 à 15:58
 -- Version du serveur :  5.5.8
 -- Version de PHP :  5.6.0
 
@@ -67,16 +67,16 @@ CREATE TABLE IF NOT EXISTS `dog` (
 --
 
 INSERT INTO `dog` (`dog_id`, `name`, `age`, `breed`, `colour`, `picture_url`, `gender`, `likes_other_dog`, `likes_to_play`, `description_dog`, `adopted`) VALUES
-(1, 'Ronnie', 4, 5, 5, 'http://enzobescvy.cluster021.hosting.ovh.net/dog/bull-terrier.jpg', 'M', 'N', 'Y', 'Hello Everyone, my name is Ronnie and I am a 1 year old Staffy cross. I am fun-loving young boy who loves to be around people and other dogs.\n\nI am playful and love to run around with soft and squeaky toys, but my favourite thing to do after a blast, is to sit next to you and have a cuddle.', 'Y'),
+(1, 'Ronnie', 4, 5, 5, 'http://enzobescvy.cluster021.hosting.ovh.net/dog/bull-terrier.jpg', 'M', 'N', 'Y', 'Hello Everyone, my name is Ronnie and I am a 1 year old Staffy cross. I am fun-loving young boy who loves to be around people and other dogs.\n\nI am playful and love to run around with soft', 'N'),
 (2, 'Leo', 3, 1, 3, 'http://enzobescvy.cluster021.hosting.ovh.net/dog/labrador-retriver.jpg', 'M', 'N', 'Y', 'Hey there, I''m Leo.\nMy pal and I are hopefully going to be rehomed together if anyone out there can find it in their heart to take on two dog instead of one.\n\nWe do love each other and struggle alone but we know it might be difficult to find a home.', 'N'),
 (3, 'Buddy', 3, 5, 3, 'http://enzobescvy.cluster021.hosting.ovh.net/dog/brown-staff.jpg', 'M', 'Y', 'Y', 'My life has been up and down really and I am desperately looking for a new home as I am very stressed in kennels. I''ve spent over half my life in a kennel because no one has wanted to rehome me. Love Buddy', 'Y'),
-(4, 'Colin', 1, 1, 5, 'http://enzobescvy.cluster021.hosting.ovh.net/dog/labrador-black.jpg', 'F', 'Y', 'N', 'I''m Colin a sweet-natured, quiet young lady looking for a new home as I wasn''t suitable for the racing industry. I am looking forward to finding out all about a new home as I have never been in one before, especially a sofa.', 'N'),
+(4, 'Colin', 1, 1, 5, 'http://enzobescvy.cluster021.hosting.ovh.net/dog/labrador-black.jpg', 'F', 'Y', 'N', 'I''m Colin a sweet-natured, quiet young lady looking for a new home as I wasn''t suitable for the racing industry. I am looking forward to finding out all about a new home as I have never been in one before, especially a sofa.', 'Y'),
 (5, 'Leslie', 4, 2, 1, 'http://enzobescvy.cluster021.hosting.ovh.net/dog/german.jpg', 'F', 'N', 'Y', 'I''m Leslie and I''m looking for a new home with owners who are around for the majority of the day so that I have the company I crave. I am very high energy and need someone to be able to fulfil. Love Leslie', 'N'),
 (6, 'Max', 7, 4, 3, 'http://enzobescvy.cluster021.hosting.ovh.net/dog/jack-russell.jpg', 'M', 'Y', 'Y', 'My name is Max\nI am really looking forward to finding a new home but first my behaviour needs to be assessed so Blue Cross know more about the families that would suit me.', 'N'),
 (7, 'Dexter', 5, 1, 2, 'http://enzobescvy.cluster021.hosting.ovh.net/dog/beige-labrador.jpg', 'M', 'Y', 'Y', 'Hello, my name is Dexter and I am a 5 year old Labrador cross.Currently I am staying at the Blue Cross Rehoming Centre in Tiverton while I look for my new furrever home!I also like long walks and spending time with my doggy pals.', 'N'),
 (8, 'Marley', 4, 4, 1, 'http://enzobescvy.cluster021.hosting.ovh.net/dog/brown-jack.jpg', 'M', 'Y', 'Y', 'I am an active and playful guy! My favourite things are woodland walks, to splash around in rivers, sticking my nose out of the window in the car, and playing with other sociable dogs.I also like long walks ', 'N'),
-(9, 'Leandra', 3, 3, 1, 'http://enzobescvy.cluster021.hosting.ovh.net/dog/border-terrier.jpeg', 'F', 'Y', 'Y', 'I am an active young girl looking for new owners who are going to give me all the time and training that I love! I love to walk, play and snuggle with humans!I also like long walks and spending time with my doggy pals.', 'N'),
-(10, 'Bambi', 5, 5, 4, 'http://enzobescvy.cluster021.hosting.ovh.net/dog/staff-grey.jpg', 'F', 'N', 'N', 'My name is Bambi and I am a 5 years old Staffordshire Bull Terrier cross. I am currently residing at the Tiverton Rehoming Centre whilst I wait for my forever home.I love spending time with my carers at the Centre.', 'N');
+(9, 'Leandra', 3, 3, 1, 'http://enzobescvy.cluster021.hosting.ovh.net/dog/border-terrier.jpeg', 'F', 'Y', 'Y', 'I am an active young girl looking for new owners who are going to give me all the time and training that I love! I love to walk, play and snuggle with humans!I also like long walks and spending time with my doggy pals.<br/> Love', 'N'),
+(10, 'Bambi', 5, 5, 4, 'http://enzobescvy.cluster021.hosting.ovh.net/dog/staff-grey.jpg', 'F', 'N', 'N', 'My name is Bambi and I am a 5 years old Staffordshire Bull Terrier cross. I am currently residing at the Tiverton Rehoming Centre whilst I wait for my forever home.I love spending time with my carers at the Centre.', 'Y');
 
 -- --------------------------------------------------------
 
@@ -138,24 +138,20 @@ CREATE TABLE IF NOT EXISTS `sponsored_dog` (
   `user_id` int(11) NOT NULL,
   `date_sponsored` date NOT NULL,
   `paid_per_month` double NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `sponsored_dog`
 --
 
 INSERT INTO `sponsored_dog` (`sponsor_dog_id`, `dog_id`, `user_id`, `date_sponsored`, `paid_per_month`) VALUES
-(1, 3, 3, '2017-04-03', 10),
-(2, 3, 5, '2016-10-12', 25),
 (3, 7, 2, '2017-04-30', 15),
 (4, 8, 3, '2017-05-25', 12),
-(5, 3, 4, '2017-04-01', 12),
 (6, 8, 5, '2017-04-13', 25),
 (7, 8, 3, '2017-04-09', 30),
 (8, 10, 3, '2015-08-12', 11),
-(9, 4, 4, '2017-04-08', 22),
 (10, 9, 2, '2017-04-16', 19),
-(11, 4, 3, '2017-05-26', 12.65);
+(11, 9, 1, '2017-05-10', 12);
 
 -- --------------------------------------------------------
 
@@ -171,7 +167,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `address_line_1` varchar(80) NOT NULL,
   `address_line_2` varchar(100) NOT NULL,
   `postcode` varchar(10) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `user`
@@ -256,12 +252,12 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT pour la table `sponsored_dog`
 --
 ALTER TABLE `sponsored_dog`
-  MODIFY `sponsor_dog_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+  MODIFY `sponsor_dog_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=51;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- Contraintes pour les tables exportées
 --
