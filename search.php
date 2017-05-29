@@ -9,17 +9,18 @@ $name2 = htmlspecialchars($_POST['search_name']);
 $age =$_POST['select_age'];
 
 //Query
-$query = $bdd->prepare('SELECT * FROM dog WHERE name LIKE "%'.$q.'%" ORDER BY dog_id DESC');
+$query = $bdd->prepare('SELECT * FROM dog WHERE name LIKE "%'.$q.'%" AND adopted ="N" ORDER BY dog_id DESC');
 $query2 = $bdd->prepare('SELECT * FROM dog_breed ORDER BY description_breed');
-$query3 = $bdd->prepare('SELECT * FROM dog WHERE breed LIKE "%'.$breed.'%"');
+$query3 = $bdd->prepare('SELECT * FROM dog WHERE breed LIKE "%'.$breed.'%" AND adopted ="N"');
 $query4 = $bdd->prepare('SELECT DISTINCT age FROM dog ORDER BY age ASC');
-$query5 = $bdd->prepare('SELECT * FROM dog WHERE name LIKE "%' . $name2 . '%" AND age="' . $age . '" ORDER BY name');
+$query5 = $bdd->prepare('SELECT * FROM dog WHERE name LIKE "%' . $name2 . '%" AND age="' . $age . '"  AND adopted ="N" ORDER BY name');
 
 //output
 $output ="";
 $output2= "";
 $output3 = "";
 //FORM 1
+
 $query->execute();
 
 if($query->rowCount() == 0){
@@ -69,7 +70,7 @@ $query3->execute();
 
 if(($query3->rowCount() == 0) && !empty($_POST['id_breed'])){
 
-	$output = $output."<br/><div class='alert alert-danger' role='alert'>No results found</div>" ;
+	$output = $output."<br/><div class='alert alert-danger align-centered' role='alert'>No results found</div>" ;
 
 }elseif(isset($_POST['id_breed'])&& !empty($_POST['id_breed'])){
 
@@ -113,7 +114,7 @@ $query5->execute();
 
 if(($query5->rowCount() == 0) && !empty($_POST['search_name'])){
 
-	$output = $output."<br/><div class='alert alert-danger' role='alert'>No results found</div>" ;
+	$output = $output."<br/><div class='alert alert-danger align-centered' role='alert'>No results found</div>" ;
 
 }elseif(empty($name2) && isset($_POST['button_search2'])){
 
@@ -309,7 +310,6 @@ if(($query5->rowCount() == 0) && !empty($_POST['search_name'])){
 						<h6>Freshly blogged</h6>
 						<p class="title"><a href="#" title="">You can sponsorship a dog !</a></p>
 						<p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram.</p>
-						<button type="button" class="btn btn-success">Sponsor a dog</button>
 					</div>
 					<div class="col-md-3">
 						<h6>Navigation</h6>

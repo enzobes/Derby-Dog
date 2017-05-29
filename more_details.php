@@ -183,7 +183,6 @@ if($adopted == "N" && isset($_POST['btn_adopted'])){
 						<h6>Freshly blogged</h6>
 						<p class="title"><a href="#" title="">You can sponsorship a dog !</a></p>
 						<p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram.</p>
-						<button type="button" class="btn btn-success">Sponsor a dog</button>
 					</div>
 					<div class="col-md-3">
 						<h6>Navigation</h6>

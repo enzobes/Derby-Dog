@@ -13,12 +13,10 @@ $output2="";
 //DELETE BUTTON ACTIONS
 if(isset($_POST['delete_sponsorship'])){
 	$query3->execute();
-	$output3 = $output3 . "<div class='alert alert-danger align-centered' role='alert'>All sponsorships of adopted dog have been deleted</div>";
-}
-if(isset($_POST['delete_adopted'])){
 	$query4->execute();
-	$output3 = $output3 . "<div class='alert alert-danger align-centered' role='alert'>All adopted dog have been deleted</div>";
+	$output3 = $output3 . "<div class='alert alert-danger align-centered' role='alert'>All sponsorships of adopted dog and adopted dog have been deleted</div>";
 }
+
 
 //ADOPTED DOG
 $query->execute();
@@ -165,22 +163,11 @@ $output3="";
 					<h1 class="titleh1">Delete Action</h1>
 				</div>
 				<div class="row marginRow">
-					<div class='col-sm-6'>
-						<h4>
-							Deletes all sponsorships of adopted dogs
-						</h4>
+					<div class='align-centered'>
+
 						<form method = 'POST'>
 							<button name="delete_sponsorship" type="submit" class="btn btn-danger btn-lg" role="button"><span class="glyphicon glyphicon-trash"></span> Delete</button>
 						</form>
-					</div>
-					<div class='col-sm-6'>
-						<h4>
-							Deletes all adopted dogs
-						</h4>
-						<form method = 'POST'>
-							<button name="delete_adopted" type="submit" class="btn btn-danger btn-lg" role="button"><span class="glyphicon glyphicon-trash"></span> Delete</button>
-						</form>
-
 					</div>
 
 				</div>
@@ -191,65 +178,64 @@ $output3="";
 
 			</section>
 		</header>
-		<footer>
 
-			<div class="footer">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-3">
-							<h6>About Us</h6>
-							<p><strong>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat.</strong></p>
-							<p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam.</p>
+			<!-- Footer -->
+			<footer>
+
+				<div class="footer">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-3">
+								<h6>About Us</h6>
+								<p><strong>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat.</strong></p>
+								<p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam.</p>
+							</div>
+							<div class="col-md-3 blog">
+								<h6>Freshly blogged</h6>
+								<p class="title"><a href="#" title="">You can sponsorship a dog !</a></p>
+								<p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram.</p>
+							</div>
+							<div class="col-md-3">
+								<h6>Navigation</h6>
+								<ul>
+									<li><a href="index.php" >Home</a></li>
+									<li><a href="search.php" >Search</a></li>
+									<li><a href="sponsor.php" >Sponsor</a></li>
+									<li><a href="admin.php">Admin</a></li>
+								</ul>
+							</div>
+							<div class="col-md-3 contact-info">
+								<h6>Keep in touch</h6>
+								<p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.</p>
+								<p class="social">
+									<a href="#" class="facebook"></a> <a href="#" class="pinterest"></a> <a href="#" class="twitter"></a>
+								</p>
+								<p class="c-details">
+									<span>Mail: </span> <a href="#" title="">derbydog@dog.com</a><br >
+									<span>Tel:</span> 00336 98 39 92 58
+								</p>
+							</div>
 						</div>
-						<div class="col-md-3 blog">
-							<h6>Freshly blogged</h6>
-							<p class="title"><a href="#" title="">You can sponsorship a dog !</a></p>
-							<p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram.</p>
-							<button type="button" class="btn btn-success">Sponsor a dog</button>
-						</div>
-						<div class="col-md-3">
-							<h6>Navigation</h6>
-							<ul>
-								<li><a href="index.php" >Home</a></li>
-								<li><a href="search.php" >Search</a></li>
-								<li><a href="sponsor.php" >Sponsor</a></li>
-								<li><a href="admin.php">Admin</a></li>
-							</ul>
-						</div>
-						<div class="col-md-3 contact-info">
-							<h6>Keep in touch</h6>
-							<p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.</p>
-							<p class="social">
-								<a href="#" class="facebook"></a> <a href="#" class="pinterest"></a> <a href="#" class="twitter"></a>
-							</p>
-							<p class="c-details">
-								<span>Mail: </span> <a href="#" title="">derbydog@dog.com</a><br >
-								<span>Tel:</span> 00336 98 39 92 58
-							</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12 copyright">
-							<p>&copy; Copyright 2017. All rights reserved. <a href="#" title="Derby Dog">Derby Dog</a></p>
+						<div class="row">
+							<div class="col-md-12 copyright">
+								<p>&copy; Copyright 2017. All rights reserved. <a href="#" title="Derby Dog">Derby Dog</a></p>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</footer>
-		<!-- Footer end -->
+			</footer>
+			<!-- Footer end -->
 
-
-
-		<!-- Javascript plugins -->
-		<script src="https://code.jquery.com/jquery.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/carouFredSel.js"></script>
-		<script src="js/jquery.stellar.min.js"></script>
-		<script src="js/custom.js"></script>
-		<script src="js/jquery-ui.min.js"></script>
+			<!-- Javascript plugins -->
+			<script src="https://code.jquery.com/jquery.js"></script>
+			<script src="js/bootstrap.min.js"></script>
+			<script src="js/carouFredSel.js"></script>
+			<script src="js/jquery.stellar.min.js"></script>
+			<script src="js/custom.js"></script>
+			<script src="js/jquery-ui.min.js"></script>
 
 
 
 
-	</body>
+		</body>
 	</html>
