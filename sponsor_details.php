@@ -3,14 +3,19 @@
 	include ("database.php");
 
 //variables
-$id = $_GET['id'];
+$dog_id = $_GET['id'];
 $userID = $_POST['userID'];
 $date_sponsored = $_POST['date_sponsored'];
 $amount_paid = $_POST['amount_paid'];
 //query
-$query = $bdd->prepare('SELECT * FROM dog INNER JOIN dog_breed ON dog.breed = dog_breed.dog_breed_id INNER JOIN colour on dog.colour = colour.colour_id WHERE dog_id = "'.$id.'"');
-$query1= $bdd->prepare('SELECT * FROM user WHERE user_id = "'.$userID.'" ');
-$query2= $bdd->prepare("INSERT INTO sponsored_dog (dog_id, user_id, date_sponsored, paid_per_month) VALUES($id, $userID, '$date_sponsored',$amount_paid)");
+$query = $bdd->prepare('SELECT * FROM dog WHERE dog_id = :dog_id');
+$query->bindParam(':dog_id', $dog_id, PDO::PARAM_INT);
+
+$query1= $bdd->prepare('SELECT * FROM user WHERE user_id = :userID ');
+$query1->bindParam(':userID', $userID, PDO::PARAM_STR);
+
+$query2= $bdd->prepare("INSERT INTO sponsored_dog (dog_id, user_id, date_sponsored, paid_per_month) VALUES ( ?, ?, ?, ? )");
+
 //output
 $output= "";
 $output2="";
@@ -42,7 +47,7 @@ $output2="";
 			<div class ='details_sponsor'>
 			<h5>Name : ". $row['name'] ."</h5>
 			<h5>Age : ". $row['age'] ."</h5>
-			<h5>Gender : ". $row['description_breed'] ."</h5>
+			<h5>Gender : ". $row['gender'] ."</h5>
 			</div>
 			</div>
 		</div>
@@ -52,7 +57,7 @@ $output2="";
 	$row = $query1->fetch();
 	if($userID == $row['user_id']){
 		if(isset($_POST['date_sponsored']) && isset($_POST['amount_paid'])){
-			$query2->execute();
+			$query2->execute(array($dog_id, $userID, $date_sponsored, $amount_paid));
 			$output2 = $output2 . "<div class='alert alert-success align-centered' role='alert'>Thank you for sponsoring this dog.</div>";
 
 

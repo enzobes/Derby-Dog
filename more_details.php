@@ -10,8 +10,10 @@ error_reporting(E_ALL);
 $id = $_GET['id'];
 //query
 $query = $bdd->prepare('SELECT * FROM dog INNER JOIN dog_breed ON dog.breed = dog_breed.dog_breed_id INNER JOIN colour on dog.colour = colour.colour_id WHERE dog_id = "'.$id.'"');
-$query2 = $bdd->prepare('UPDATE dog SET adopted = "Y" WHERE dog_id = "'.$id.'"');
-$query3= $bdd->prepare('SELECT dog_id, adopted FROM dog WHERE dog_id = "'.$id.'"');
+$query2 = $bdd->prepare('UPDATE dog SET adopted = "Y" WHERE dog_id = :id');
+$query2->bindParam(':id', $id, PDO::PARAM_INT);
+$query3= $bdd->prepare('SELECT dog_id, adopted FROM dog WHERE dog_id = :id');
+$query3->bindParam(':id', $id, PDO::PARAM_INT);
 
 //output
 $output= "";

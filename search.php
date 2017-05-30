@@ -1,7 +1,7 @@
 <?php
 
 //Connection database
-	include ("database.php");
+include ("database.php");
 //POST variables
 $q = htmlspecialchars($_POST['q']);
 $breed = htmlspecialchars($_POST['id_breed']);
@@ -9,11 +9,20 @@ $name2 = htmlspecialchars($_POST['search_name']);
 $age =$_POST['select_age'];
 
 //Query
-$query = $bdd->prepare('SELECT * FROM dog WHERE name LIKE "%'.$q.'%" AND adopted ="N" ORDER BY dog_id DESC');
+$query = $bdd->prepare('SELECT * FROM dog WHERE name LIKE :q AND adopted ="N" ORDER BY name');
 $query2 = $bdd->prepare('SELECT * FROM dog_breed ORDER BY description_breed');
-$query3 = $bdd->prepare('SELECT * FROM dog WHERE breed LIKE "%'.$breed.'%" AND adopted ="N"');
+$query3 = $bdd->prepare('SELECT * FROM dog WHERE breed = :breed AND adopted ="N" ORDER BY name');
 $query4 = $bdd->prepare('SELECT DISTINCT age FROM dog ORDER BY age ASC');
-$query5 = $bdd->prepare('SELECT * FROM dog WHERE name LIKE "%' . $name2 . '%" AND age="' . $age . '"  AND adopted ="N" ORDER BY name');
+$query5 = $bdd->prepare('SELECT * FROM dog WHERE name LIKE :name2 AND age= :age  AND adopted ="N" ORDER BY name');
+$q = "%".$q."%";
+$query->bindParam(':q', $q, PDO::PARAM_STR);
+$query3->bindParam(':breed', $breed, PDO::PARAM_STR);
+$name2 = "%".$name2."%";
+$query5->bindParam(':name2', $name2, PDO::PARAM_STR);
+$query5->bindParam(':age', $age, PDO::PARAM_INT);
+
+
+
 
 //output
 $output ="";
@@ -27,7 +36,7 @@ if($query->rowCount() == 0){
 
 	$output = $output."<br/><div class='alert alert-danger align-centered' role='alert'>No results found</div>" ;
 
-}elseif(empty($q) && isset($_POST['button_search'])){
+}elseif(empty($_POST['q']) && isset($_POST['button_search'])){
 
 	$output = $output."<br/><div class='alert alert-danger align-centered' role='alert'>Please fill in the name field</div>" ;
 
@@ -112,7 +121,7 @@ if(($query5->rowCount() == 0) && !empty($_POST['search_name'])){
 
 	$output = $output."<br/><div class='alert alert-danger align-centered' role='alert'>No results found</div>" ;
 
-}elseif(empty($name2) && isset($_POST['button_search2'])){
+}elseif(empty($_POST['search_name']) && isset($_POST['button_search2'])){
 
 	$output = $output."<br/><div class='alert alert-danger align-centered' role='alert'>Please fill in the name field in addition to the age</div>" ;
 
