@@ -136,8 +136,6 @@ $output2="";
 			</div>
 		</nav>
 		<!-- Navigation end -->
-<section>
-
 <div class="page-header">
   <h1 class="titleh1">Sponsor details</h1>
 </div>
@@ -149,7 +147,7 @@ $output2="";
 		 <h2 class="titleh1">Your informations</h2>
 		 <?php echo($output2);
  		 ?>
-		 <form method="POST">
+<form method="POST">
 		 <div class='col-sm-6 col-md-4'>
 		 	<div class="input-group">
 	  		<span class="input-group-addon" id="sizing-addon2">UserID</span>
@@ -157,31 +155,26 @@ $output2="";
 			</div>
 		</div>
 		<div class='col-sm-6 col-md-4'>
-
 		 <div class="input-group">
-			 <span class="input-group-addon" id="sizing-addon2">Amount paid/month</span>
+			 <span class="input-group-addon" id="sizing-addon3">Amount paid/month</span>
 			 <input name="amount_paid" type="number" step="0.01" class="form-control" placeholder="e.g.12.50" aria-describedby="sizing-addon2" required>
 			 <span class="input-group-addon">£</span>
 
 		 </div>
-	 </div>
+	 	</div>
 	 <div class='col-sm-6 col-md-4'>
-
 		<div class="input-group">
-			<span class="input-group-addon" id="sizing-addon2">Date Sponsored</span>
+			<span class="input-group-addon" id="sizing-addon4">Date Sponsored</span>
 			<input type="date" name="date_sponsored" class="form-control" aria-describedby="sizing-addon2" required>
+		</div>
+	</div>
 
-		</div>
-		</div>
 		<br/>
-
 			<button type="submit" class="btn btn-success column-submit ">Submit <span class="glyphicon glyphicon-chevron-right"></span></button>
-	</div>
+		</form>
 
-	</div>
-</form>
-
-</section>
+			</div>
+			</div>
 
 <!-- Footer -->
 <footer>

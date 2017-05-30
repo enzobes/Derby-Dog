@@ -57,8 +57,7 @@ $output2= "";
 				 </div>
 
 					</div>
-					<div>
-					</div>
+</div>
 	";
 
 //Adopt this dog
