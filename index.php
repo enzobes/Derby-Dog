@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 ?>
 <?php
 //Connection database
-
+//SDU Test
 	include ("database.php");
 
 $query = "SELECT * FROM news ORDER BY date_of_publication DESC LIMIT 0, 4";
